@@ -1,0 +1,57 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# namsor
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of `namsor` is to provide some functionality to use some endpoints
+for namsor's name checking API service. One can use this to for retrieve 
+best estimations for a name's gender and/or ethnicity.
+
+
+## Installation
+
+You can install the development version of `namsor` like so:
+
+``` r
+require(remotes)
+remotes::install_github('SinanPolatoglu/namsor')
+```
+
+## Usage
+
+Obtain an API key via namsor.com
+
+```{r lib}
+library(namsor)
+
+## SET API KEY
+# Sys.setenv(NAMSOR_API_KEY='your api key')
+```
+
+Supported endpoints currently are
+
+- `namsor_gender`
+- `namsor_origin`
+- `namsor_country`
+- `namsor_diaspora`
+
+Result in case of a succesful call will be as list with the retrieved output.
+For example:
+```{r examples}
+str(namsor_origin('Sinan', 'Polatoglu'))
+```
